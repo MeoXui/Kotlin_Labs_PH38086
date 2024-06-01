@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Kotlin_Labs</string>
+    <string name="title_activity_lab4">lab4</string>
+    <string name="title_activity_bai2">Bai2</string>
+    <string name="title_activity_bai3">Bai3</string>
+    <string name="title_activity_lab5">Lab5</string>
+    <string name="title_activity_lab6">Lab6</string>
+</resources>

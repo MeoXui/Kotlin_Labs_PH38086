@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".lab1.PuongTrinhBac2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="45sp"
+        android:gravity="center"
+        android:text="Phương trình\nbậc 2"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:layout_marginVertical="5dp"
+            android:textSize="35sp"
+            android:hint="a"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:textSize="35sp"
+            android:text="x^2 + "/>
+
+        <EditText
+            android:id="@+id/b"
+            android:layout_width="wrap_content"
+            android:minWidth="48dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:textSize="35sp"
+            android:hint="b"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:textSize="35sp"
+            android:text="x + "/>
+
+        <EditText
+            android:id="@+id/c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:layout_marginVertical="5dp"
+            android:textSize="35sp"
+            android:hint="c"
+            android:inputType="numberDecimal"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_ketqua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="30sp"
+        android:text="Kết quả"/>
+
+    <TextView
+        android:id="@+id/kq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:layout_margin="5dp"
+        android:textSize="35sp"
+        android:text="Phương trình có nghiệm..."/>
+
+</LinearLayout>
