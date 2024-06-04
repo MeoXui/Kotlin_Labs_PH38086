@@ -16,6 +16,21 @@
         android:theme="@style/Theme.Kotlin_Labs"
         tools:targetApi="31">
         <activity
+            android:name=".lab7.Bai3"
+            android:exported="false"
+            android:label="@string/title_activity_bai3"
+            android:theme="@style/Theme.Kotlin_Labs" />
+        <activity
+            android:name=".lab7.Bai2"
+            android:exported="false"
+            android:label="@string/title_activity_bai2"
+            android:theme="@style/Theme.Kotlin_Labs" />
+        <activity
+            android:name=".lab7.Lab7"
+            android:exported="false"
+            android:label="@string/title_activity_lab7"
+            android:theme="@style/Theme.Kotlin_Labs" />
+        <activity
             android:name=".lab3.MainActivity"
             android:exported="false"
             android:label="Lab3"

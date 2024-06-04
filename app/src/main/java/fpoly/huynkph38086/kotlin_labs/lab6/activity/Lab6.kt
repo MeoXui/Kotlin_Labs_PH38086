@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -64,16 +65,8 @@ class Lab6 : ComponentActivity() {
 
 @Composable
 fun Greeting7() {
-    MovieScreen(Movie.getSampleMovies())
-}
-
-@Composable
-fun MovieScreen(movies: List<Movie>) {
     val context = LocalContext.current
-    var listType by remember { mutableStateOf(ListType.GRID) }
-    Column (
-        modifier = Modifier
-    ) {
+    Column () {
         Button(onClick = { startActivity(
             context,
             Intent(context, Bai3::class.java),
@@ -85,6 +78,16 @@ fun MovieScreen(movies: List<Movie>) {
             Text(text = "Bài 3 >")
         }
 
+        Box(modifier = Modifier.weight(1f)){
+            MovieScreen(Movie.getSampleMovies())
+        }
+    }
+}
+
+@Composable
+fun MovieScreen(movies: List<Movie>) {
+    var listType by remember { mutableStateOf(ListType.GRID) }
+    Column {
         Row(
             modifier = Modifier
                 .padding(8.dp)

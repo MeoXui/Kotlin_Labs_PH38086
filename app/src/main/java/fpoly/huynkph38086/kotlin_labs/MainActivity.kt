@@ -9,9 +9,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import fpoly.huynkph38086.kotlin_labs.lab1.Lab1Activity
 import fpoly.huynkph38086.kotlin_labs.lab2.Lab2Activity
+import fpoly.huynkph38086.kotlin_labs.lab3.MainActivity
 import fpoly.huynkph38086.kotlin_labs.lab4.Lab4
 import fpoly.huynkph38086.kotlin_labs.lab5.Lab5
 import fpoly.huynkph38086.kotlin_labs.lab6.activity.Lab6
+import fpoly.huynkph38086.kotlin_labs.lab7.Lab7
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +34,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, Lab2Activity::class.java))
         }
 
+        findViewById<Button>(R.id.lab3).setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
         findViewById<Button>(R.id.lab4).setOnClickListener {
             startActivity(Intent(this, Lab4::class.java))
         }
@@ -42,6 +48,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.lab6).setOnClickListener {
             startActivity(Intent(this, Lab6::class.java))
+        }
+
+        findViewById<Button>(R.id.lab7).setOnClickListener {
+            startActivity(Intent(this, Lab7::class.java))
         }
     }
 }

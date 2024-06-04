@@ -23,6 +23,13 @@
         android:textSize="40sp"/>
 
     <Button
+        android:id="@+id/lab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lab 3"
+        android:textSize="40sp"/>
+
+    <Button
         android:id="@+id/lab4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,6 +48,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lab 6"
+        android:textSize="40sp"/>
+
+    <Button
+        android:id="@+id/lab7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lab 7"
+        android:textSize="40sp"/>
+
+    <Button
+        android:id="@+id/lab8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lab 8"
         android:textSize="40sp"/>
 
 </LinearLayout>
