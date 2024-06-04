@@ -1,5 +1,6 @@
-package fpoly.huynkph38086.kotlin_labs.lab6
+package fpoly.huynkph38086.kotlin_labs.lab6.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,7 +21,6 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -31,10 +31,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -43,8 +44,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
-import fpoly.huynkph38086.kotlin_labs.lab6.ui.theme.Kotlin_LabsTheme
+import fpoly.huynkph38086.kotlin_labs.lab6.model.ListType
+import fpoly.huynkph38086.kotlin_labs.lab6.model.Movie
+import fpoly.huynkph38086.kotlin_labs.ui.theme.Kotlin_LabsTheme
 
 class Lab6 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,10 +69,26 @@ fun Greeting7() {
 
 @Composable
 fun MovieScreen(movies: List<Movie>) {
-    var listType by remember { mutableStateOf(ListType.ROW) }
-    Column {
+    val context = LocalContext.current
+    var listType by remember { mutableStateOf(ListType.GRID) }
+    Column (
+        modifier = Modifier
+    ) {
+        Button(onClick = { startActivity(
+            context,
+            Intent(context, Bai3::class.java),
+            null
+        ) },
+            modifier = Modifier
+                .align(alignment = Alignment.End)
+        ) {
+            Text(text = "Bài 3 >")
+        }
+
         Row(
-            modifier = Modifier.padding(8.dp).fillMaxWidth(),
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Button(onClick = { listType = ListType.ROW }) {
@@ -147,7 +167,9 @@ fun MovieItem(movie: Movie, listType: ListType) {
                 model = movie.posterUrl,
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth,
-                modifier = Modifier.wrapContentHeight().fillMaxWidth()
+                modifier = Modifier
+                    .height(200.dp)
+                    .fillMaxWidth()
             )
             Column(
                 modifier = Modifier.padding(8.dp)

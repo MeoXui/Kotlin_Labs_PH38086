@@ -45,7 +45,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.core.content.ContextCompat
 import fpoly.huynkph38086.kotlin_labs.R
-import fpoly.huynkph38086.kotlin_labs.lab5.ui.theme.Kotlin_LabsTheme
+import fpoly.huynkph38086.kotlin_labs.ui.theme.Kotlin_LabsTheme
 
 class Lab5 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

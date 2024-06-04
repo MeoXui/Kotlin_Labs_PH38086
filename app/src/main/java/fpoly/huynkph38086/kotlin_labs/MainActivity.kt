@@ -11,7 +11,7 @@ import fpoly.huynkph38086.kotlin_labs.lab1.Lab1Activity
 import fpoly.huynkph38086.kotlin_labs.lab2.Lab2Activity
 import fpoly.huynkph38086.kotlin_labs.lab4.Lab4
 import fpoly.huynkph38086.kotlin_labs.lab5.Lab5
-import fpoly.huynkph38086.kotlin_labs.lab6.Lab6
+import fpoly.huynkph38086.kotlin_labs.lab6.activity.Lab6
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

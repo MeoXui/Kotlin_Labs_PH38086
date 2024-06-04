@@ -36,7 +36,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import fpoly.huynkph38086.kotlin_labs.lab5.ui.theme.Kotlin_LabsTheme
+import fpoly.huynkph38086.kotlin_labs.ui.theme.Kotlin_LabsTheme
 
 class Bai3 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

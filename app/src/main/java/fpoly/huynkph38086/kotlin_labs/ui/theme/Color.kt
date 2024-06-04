@@ -1,4 +1,4 @@
-package fpoly.huynkph38086.kotlin_labs.lab5.ui.theme
+package fpoly.huynkph38086.kotlin_labs.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

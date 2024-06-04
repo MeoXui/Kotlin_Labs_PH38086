@@ -1,4 +1,4 @@
-package fpoly.huynkph38086.kotlin_labs.lab6.ui.theme
+package fpoly.huynkph38086.kotlin_labs.ui.theme
 
 import android.app.Activity
 import android.os.Build

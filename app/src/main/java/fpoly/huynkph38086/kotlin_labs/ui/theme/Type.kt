@@ -1,4 +1,4 @@
-package fpoly.huynkph38086.kotlin_labs.lab4.ui.theme
+package fpoly.huynkph38086.kotlin_labs.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
