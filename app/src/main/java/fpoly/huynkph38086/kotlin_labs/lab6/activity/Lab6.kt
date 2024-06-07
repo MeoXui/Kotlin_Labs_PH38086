@@ -193,10 +193,8 @@ fun MovieItem(movie: Movie, listType: ListType) {
 @Composable
 fun MovieColumnItem(movie: Movie, listType: ListType) {
     Card(
-        colors = CardDefaults.cardColors(containerColor =
-        Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation =
-        6.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
