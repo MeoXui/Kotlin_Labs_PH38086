@@ -35,8 +35,8 @@ class Lab7 : ComponentActivity() {
 @Composable
 fun Greeting9() {
     val context = LocalContext.current
-    val mainViewModel: MainViewModel = viewModel()
-    val moviesState = mainViewModel.movies.observeAsState(initial = emptyList())
+    val movieViewModel: MovieViewModel = viewModel()
+    val moviesState = movieViewModel.movies.observeAsState(initial = emptyList())
     Column {
         Button(onClick = { ContextCompat.startActivity(
             context,

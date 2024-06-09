@@ -28,8 +28,9 @@ class Bai2 : ComponentActivity() {
 @Composable
 fun Greeting10() {
     val context = LocalContext.current
-    ScreenNavigation()
-    Button(onClick = {
+    ScreenNavigation(Screen.SCREEN1.route)
+    Button(
+        onClick = {
             ContextCompat.startActivity(
                 context,
                 Intent(context, Bai3::class.java),

@@ -29,6 +29,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -46,9 +47,11 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import fpoly.huynkph38086.kotlin_labs.lab6.model.ListType
 import fpoly.huynkph38086.kotlin_labs.lab6.model.Movie
+import fpoly.huynkph38086.kotlin_labs.lab7.MovieViewModel
 import fpoly.huynkph38086.kotlin_labs.ui.theme.Kotlin_LabsTheme
 
 class Lab6 : ComponentActivity() {
@@ -167,7 +170,7 @@ fun MovieItem(movie: Movie, listType: ListType) {
             modifier = Modifier.then(getItemSizeModifier(listType))
         ) {
             AsyncImage(
-                model = movie.posterUrl,
+                model = movie.image,
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
@@ -178,7 +181,7 @@ fun MovieItem(movie: Movie, listType: ListType) {
                 modifier = Modifier.padding(8.dp)
             ) {
                 Text(
-                    text = movie.title,
+                    text = movie.filmName,
                     style = MaterialTheme.typography.titleSmall,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
@@ -200,7 +203,7 @@ fun MovieColumnItem(movie: Movie, listType: ListType) {
             modifier = Modifier.fillMaxWidth()
         ) {
             AsyncImage(
-                model = movie.posterUrl,
+                model = movie.image,
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
@@ -212,7 +215,7 @@ fun MovieColumnItem(movie: Movie, listType: ListType) {
                 modifier = Modifier.padding(8.dp)
             ) {
                 Text(
-                    text = movie.title,
+                    text = movie.filmName,
                     style = MaterialTheme.typography.titleSmall,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
@@ -228,7 +231,7 @@ fun MovieColumnItem(movie: Movie, listType: ListType) {
                     2.dp)
                 )
                 Text(
-                    text = movie.shotDescription,
+                    text = movie.duration,
                     style = MaterialTheme.typography.bodySmall,
                     maxLines = 5,
                     overflow = TextOverflow.Ellipsis,

@@ -14,6 +14,7 @@ import fpoly.huynkph38086.kotlin_labs.lab4.Lab4
 import fpoly.huynkph38086.kotlin_labs.lab5.Lab5
 import fpoly.huynkph38086.kotlin_labs.lab6.activity.Lab6
 import fpoly.huynkph38086.kotlin_labs.lab7.Lab7
+import fpoly.huynkph38086.kotlin_labs.lab8.Lab8
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +53,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.lab7).setOnClickListener {
             startActivity(Intent(this, Lab7::class.java))
+        }
+
+        findViewById<Button>(R.id.lab8).setOnClickListener {
+            startActivity(Intent(this, Lab8::class.java))
         }
     }
 }
