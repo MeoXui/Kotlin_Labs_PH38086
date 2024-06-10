@@ -46,7 +46,9 @@ fun MovieFormScreen(
     movieViewModel: MovieViewModel,
     filmId: String?,
 ) {
-    val movie = movieViewModel.getMovieById(filmId).observeAsState(initial = null).value
+    val isOffline = movieViewModel.movies.observeAsState(initial = emptyList()).value.isEmpty()
+    val movie = (if(isOffline) movieViewModel.offlineGetMovieByID(filmId)
+        else movieViewModel.getMovieById(filmId).observeAsState(initial = null).value)
     val isEditing = filmId != null
 
     var formData by remember(movie) {
@@ -54,15 +56,21 @@ fun MovieFormScreen(
     }
 
     MovieForm(formData = formData, {
-        if (isEditing) movieViewModel.updateMovie(formData.toMovieRequest())
-        else movieViewModel.addFilm(formData.toMovieRequest())
+        if (isOffline) {
+            if (isEditing) movieViewModel.offlineUpdateMovie(formData.toMovie())
+            else movieViewModel.offlineAddFilm(formData.toMovie())
+        }
+        else {
+            if (isEditing) movieViewModel.updateMovie(formData.toMovieRequest())
+            else movieViewModel.addFilm(formData.toMovieRequest())
+        }
         navController.popBackStack()
     }) { updatedFormData ->
         formData = updatedFormData
         val isValid =
-            if (isEditing) movie?.let { validateMovieDataAndEnsureCompletion(updatedFormData, it) }
-                ?: false
-            else isAllFieldsEntered(updatedFormData)
+            if (isEditing) movie?.let {
+                validateMovieDataAndEnsureCompletion(updatedFormData, it)
+            } ?: false else isAllFieldsEntered(updatedFormData)
     }
 }
 
@@ -78,7 +86,6 @@ fun MovieForm(
             .verticalScroll(rememberScrollState())
             .imePadding()
     ) {
-
         Spacer(modifier = Modifier.height(12.dp))
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),

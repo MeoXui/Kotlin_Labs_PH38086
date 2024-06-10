@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fpoly.huynkph38086.kotlin_labs.lab6.activity.MovieScreen
+import fpoly.huynkph38086.kotlin_labs.lab6.model.Movie.Companion.getSampleMovies
 import fpoly.huynkph38086.kotlin_labs.ui.theme.Kotlin_LabsTheme
 
 class Lab7 : ComponentActivity() {
@@ -50,7 +51,7 @@ fun Greeting9() {
         }
 
         Box(modifier = Modifier.weight(1f)){
-            MovieScreen(moviesState.value)
+            MovieScreen(moviesState.value.ifEmpty { getSampleMovies() })
         }
     }
 }

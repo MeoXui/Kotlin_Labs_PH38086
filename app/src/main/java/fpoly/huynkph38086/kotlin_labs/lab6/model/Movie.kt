@@ -3,16 +3,16 @@ package fpoly.huynkph38086.kotlin_labs.lab6.model
 import com.google.gson.annotations.SerializedName
 
 data class Movie(
-    @SerializedName("filmId") val id: String = "0",
-    @SerializedName("filmName") val filmName: String = "null",
-    @SerializedName("duration") val duration: String = "nan:nan:nan",
-    @SerializedName("releaseDate") val releaseDate: String = "nan/nan/nan",
-    @SerializedName("genre") val genre: String = "nan",
-    @SerializedName("national") val national: String = "null",
-    @SerializedName("description") val description: String = "",
-    @SerializedName("image") val image: String = "/null",
+    @SerializedName("filmId") var id: String = "0",
+    @SerializedName("filmName") var filmName: String = "Phim Sieu hay",
+    @SerializedName("duration") var duration: String = "23",
+    @SerializedName("releaseDate") var releaseDate: String = "19/2/3401",
+    @SerializedName("genre") var genre: String = "Vũ trụ",
+    @SerializedName("national") var national: String = "Sao Hỏa",
+    @SerializedName("description") var description: String = "Hay lắm xem đi",
+    @SerializedName("image") var image: String = "/null",
 ) {
     companion object {
-        fun getSampleMovies() = listOf(Movie(), Movie(), Movie(), Movie(), Movie())
+        fun getSampleMovies() = listOf(Movie("0"), Movie("1"), Movie("2"), Movie("3"), Movie("4"))
     }
 }

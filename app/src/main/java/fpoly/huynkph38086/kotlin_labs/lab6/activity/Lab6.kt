@@ -231,7 +231,7 @@ fun MovieColumnItem(movie: Movie, listType: ListType) {
                     2.dp)
                 )
                 Text(
-                    text = movie.duration,
+                    text = movie.description,
                     style = MaterialTheme.typography.bodySmall,
                     maxLines = 5,
                     overflow = TextOverflow.Ellipsis,

@@ -73,17 +73,6 @@ class Lab8 : ComponentActivity() {
 fun Greeting12() {
     val context = LocalContext.current
     Column {
-//        Button(onClick = { startActivity(
-//            context,
-//            Intent(context, Bai2::class.java),
-//            null
-//        ) },
-//            modifier = Modifier
-//                .align(alignment = Alignment.End)
-//        ) {
-//            Text(text = "Bài 2 >")
-//        }
-
         Box(modifier = Modifier.weight(1f)){
             ScreenNavigation()
         }
@@ -91,24 +80,10 @@ fun Greeting12() {
 }
 
 @Composable
-fun MovieScreen() {
-    val movieViewModel: MovieViewModel = viewModel()
-    val moviesState = movieViewModel.movies.observeAsState(initial = emptyList())
-    val movies = moviesState.value
-
-    Column {
-        Button(onClick = { }) {
-            Text("Thêm")
-        }
-
-        MovieColumn(movies, onEditClick = {}, onDeleteClick = {})
-    }
-}
-
-@Composable
 fun MovieScreen(navigationController: NavController, movieViewModel: MovieViewModel) {
     val moviesState = movieViewModel.movies.observeAsState(initial = emptyList())
-    val movies = moviesState.value
+    val movies = moviesState.value.ifEmpty { movieViewModel.offlineMovies }
+    val isOffline = moviesState.value.isEmpty()
     Column (modifier = Modifier.fillMaxSize()) {
         Button(onClick = {
             navigationController.navigate(Screen.ADD.route)
@@ -120,7 +95,8 @@ fun MovieScreen(navigationController: NavController, movieViewModel: MovieViewMo
         MovieColumn(movies, onEditClick = {
             navigationController.navigate("${Screen.EDIT.route}/${it}")
         }, onDeleteClick = {
-            movieViewModel.deleteMovieById(it);
+            if(isOffline) movieViewModel.offlineDeleteMovieById(it)
+            else movieViewModel.deleteMovieById(it);
         })
     }
 }

@@ -13,6 +13,8 @@ import kotlinx.coroutines.launch
 class MovieViewModel  : ViewModel() {
     private val _movies = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>> = _movies
+    var offlineMovies: ArrayList<Movie> = arrayListOf()
+    var autoID: Int = 0
 
     init {
         getMovies()
@@ -32,6 +34,8 @@ class MovieViewModel  : ViewModel() {
                 _movies.postValue(emptyList())
             }
         }
+
+        autoID = offlineMovies.size
     }
 
     fun getMovieById(filmId: String?): LiveData<Movie?> {
@@ -51,6 +55,12 @@ class MovieViewModel  : ViewModel() {
             }
         }
         return liveData
+    }
+
+    fun offlineGetMovieByID(filmId: String?): Movie? {
+        for (m in offlineMovies)
+            if (filmId == m.id) return m
+        return null
     }
 
     private val _isSuccess = MutableLiveData<Boolean>()
@@ -78,6 +88,12 @@ class MovieViewModel  : ViewModel() {
         }
     }
 
+    fun offlineAddFilm(m: Movie) {
+        m.id = autoID.toString()
+        offlineMovies.add(m)
+        autoID++
+    }
+
     fun updateMovie(movieRequest: MovieRequest) {
         viewModelScope.launch {
             _isSuccess.value = try {
@@ -100,6 +116,11 @@ class MovieViewModel  : ViewModel() {
         }
     }
 
+    fun offlineUpdateMovie(m: Movie) {
+        val i = offlineMovies.indexOf(offlineGetMovieByID(m.id))
+        offlineMovies[i] = m
+    }
+
     fun deleteMovieById(id: String) {
         viewModelScope.launch {
             _isSuccess.value = try {
@@ -120,5 +141,9 @@ class MovieViewModel  : ViewModel() {
                 false
             }
         }
+    }
+
+    fun offlineDeleteMovieById(id: String) {
+        offlineMovies.remove(offlineGetMovieByID(id))
     }
 }
