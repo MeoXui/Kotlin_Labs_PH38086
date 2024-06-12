@@ -19,4 +19,6 @@ interface MovieService {
     suspend fun updateFilm(@Body filmRequest: MovieRequest): Response<StatusResponse>
     @DELETE("delete-film.php")
     suspend fun deleteFilm(@Query("id") id: String): Response<StatusResponse>
+
+    @S
 }
